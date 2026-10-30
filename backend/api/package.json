@@ -8,7 +8,8 @@
     "dev": "nodemon src/server.js",
     "test:db": "node src/config/test-db.js",
     "test:db:mock": "node src/config/test-mock-db.js",
-    "test:auth": "node src/tests/auth.test.js"
+    "test:auth": "node src/tests/auth.test.js",
+    "test:blockchain": "node src/tests/blockchain.test.js"
   },
   "keywords": [
     "blockchain",
@@ -20,6 +21,8 @@
   "author": "Navendu Maiti",
   "license": "ISC",
   "dependencies": {
+    "@grpc/grpc-js": "^1.14.7",
+    "@hyperledger/fabric-gateway": "^1.13.0",
     "argon2": "^0.41.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
@@ -36,4 +39,3 @@
     "pg-mem": "^3.0.4"
   }
 }
-

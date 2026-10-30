@@ -455,3 +455,4 @@ class PharmaContract extends Contract {
 }
 
 module.exports = PharmaContract;
+

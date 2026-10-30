@@ -21,3 +21,4 @@ class Recall {
 }
 
 module.exports = Recall;
+

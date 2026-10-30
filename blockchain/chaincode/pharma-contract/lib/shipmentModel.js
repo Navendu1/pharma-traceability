@@ -21,3 +21,4 @@ class Shipment {
 }
 
 module.exports = Shipment;
+
