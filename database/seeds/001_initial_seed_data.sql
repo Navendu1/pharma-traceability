@@ -3,7 +3,7 @@
 -- Version: 1.0.0
 -- Password for all seed users: Password@123
 -- Argon2id hash for 'Password@123':
--- $argon2id$v=19$m=65536,t=3,p=4$vO2hR/p890bF1Z4p5k6l7g$G9y1aF8P2qR4sT6uV8wX0yZ2aB4cD6eF8gH0iJ2kL4m
+-- $argon2id$v=19$m=65536,t=3,p=4$mYBuaBSKB8q6vviQkYuVkg$mkeh2UeEHxCOeGcnozueCU5xuDfhwD6B4Fu4ADZoOpA
 -- ==============================================================================
 
 -- 1. SEED ORGANIZATIONS
@@ -19,10 +19,10 @@ ON CONFLICT (id) DO NOTHING;
 -- 2. SEED USERS (Password: Password@123)
 INSERT INTO users (id, organization_id, username, email, password_hash, full_name, role, is_active)
 VALUES
-    ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', '11111111-1111-1111-1111-111111111111', 'mfg_admin', 'mfg_admin@apexbiopharma.com', '$argon2id$v=19$m=65536,t=3,p=4$vO2hR/p890bF1Z4p5k6l7g$G9y1aF8P2qR4sT6uV8wX0yZ2aB4cD6eF8gH0iJ2kL4m', 'Dr. Subhash Sen (Quality Head)', 'ORG_ADMIN', TRUE),
-    ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', '22222222-2222-2222-2222-222222222222', 'dist_admin', 'dist_admin@easternmed.com', '$argon2id$v=19$m=65536,t=3,p=4$vO2hR/p890bF1Z4p5k6l7g$G9y1aF8P2qR4sT6uV8wX0yZ2aB4cD6eF8gH0iJ2kL4m', 'Vikramaditya Patnaik (Logistics Lead)', 'ORG_ADMIN', TRUE),
-    ('cccccccc-cccc-cccc-cccc-cccccccccccc', '44444444-4444-4444-4444-444444444444', 'pharm_admin', 'pharm_admin@medpluscare.com', '$argon2id$v=19$m=65536,t=3,p=4$vO2hR/p890bF1Z4p5k6l7g$G9y1aF8P2qR4sT6uV8wX0yZ2aB4cD6eF8gH0iJ2kL4m', 'Ananya Roy, Registered Pharmacist', 'ORG_ADMIN', TRUE),
-    ('dddddddd-dddd-dddd-dddd-dddddddddddd', '55555555-5555-5555-5555-555555555555', 'regulator_officer', 'regulator@cdsco.gov.in', '$argon2id$v=19$m=65536,t=3,p=4$vO2hR/p890bF1Z4p5k6l7g$G9y1aF8P2qR4sT6uV8wX0yZ2aB4cD6eF8gH0iJ2kL4m', 'Rajesh K. Verma (Drug Inspector)', 'INSPECTOR', TRUE)
+    ('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa', '11111111-1111-1111-1111-111111111111', 'mfg_admin', 'mfg_admin@apexbiopharma.com', '$argon2id$v=19$m=65536,t=3,p=4$mYBuaBSKB8q6vviQkYuVkg$mkeh2UeEHxCOeGcnozueCU5xuDfhwD6B4Fu4ADZoOpA', 'Dr. Subhash Sen (Quality Head)', 'ORG_ADMIN', TRUE),
+    ('bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb', '22222222-2222-2222-2222-222222222222', 'dist_admin', 'dist_admin@easternmed.com', '$argon2id$v=19$m=65536,t=3,p=4$mYBuaBSKB8q6vviQkYuVkg$mkeh2UeEHxCOeGcnozueCU5xuDfhwD6B4Fu4ADZoOpA', 'Vikramaditya Patnaik (Logistics Lead)', 'ORG_ADMIN', TRUE),
+    ('cccccccc-cccc-cccc-cccc-cccccccccccc', '44444444-4444-4444-4444-444444444444', 'pharm_admin', 'pharm_admin@medpluscare.com', '$argon2id$v=19$m=65536,t=3,p=4$mYBuaBSKB8q6vviQkYuVkg$mkeh2UeEHxCOeGcnozueCU5xuDfhwD6B4Fu4ADZoOpA', 'Ananya Roy, Registered Pharmacist', 'ORG_ADMIN', TRUE),
+    ('dddddddd-dddd-dddd-dddd-dddddddddddd', '55555555-5555-5555-5555-555555555555', 'regulator_officer', 'regulator@cdsco.gov.in', '$argon2id$v=19$m=65536,t=3,p=4$mYBuaBSKB8q6vviQkYuVkg$mkeh2UeEHxCOeGcnozueCU5xuDfhwD6B4Fu4ADZoOpA', 'Rajesh K. Verma (Drug Inspector)', 'INSPECTOR', TRUE)
 ON CONFLICT (id) DO NOTHING;
 
 -- 3. SEED PRODUCTS
