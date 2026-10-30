@@ -64,3 +64,4 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO verification_logs (serial_unit_id, scanned_serial_raw, scanner_ip, location_city, verification_result, scan_timestamp)
 VALUES
     ('30000000-0000-0000-0000-000000000002', 'MED-IN-8L5Q-03YG-9R3N', '103.21.124.5', 'Kharagpur', 'AUTHENTIC', '2026-10-15 14:32:00+05:30');
+
