@@ -217,3 +217,4 @@ async function runSupplyChainTests() {
 }
 
 runSupplyChainTests();
+

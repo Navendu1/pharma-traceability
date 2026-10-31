@@ -25,3 +25,4 @@ router.post(
 router.get('/', authenticate, recallController.getRecalls);
 
 module.exports = router;
+

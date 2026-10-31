@@ -30,3 +30,4 @@ class RecallController {
 }
 
 module.exports = new RecallController();
+

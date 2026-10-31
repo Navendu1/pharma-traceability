@@ -14,3 +14,4 @@ router.get('/verify/:serialNumber', verificationController.verify);
 router.get('/history/:serialNumber', verificationController.getHistory);
 
 module.exports = router;
+

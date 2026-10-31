@@ -107,3 +107,4 @@ class VerificationService {
 }
 
 module.exports = new VerificationService();
+

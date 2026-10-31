@@ -32,3 +32,4 @@ class VerificationController {
 }
 
 module.exports = new VerificationController();
+

@@ -46,5 +46,7 @@ router.post(
 );
 
 router.get('/serials/:serialNumber', authenticate, productController.getSerial);
+router.get('/serials/:serialNumber/qr', productController.getSerialQR);
 
 module.exports = router;
+

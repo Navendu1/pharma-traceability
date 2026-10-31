@@ -30,3 +30,4 @@ router.post(
 router.get('/', authenticate, shipmentController.getShipments);
 
 module.exports = router;
+

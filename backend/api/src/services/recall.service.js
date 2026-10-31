@@ -76,3 +76,4 @@ class RecallService {
 }
 
 module.exports = new RecallService();
+

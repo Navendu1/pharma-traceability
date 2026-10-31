@@ -43,3 +43,4 @@ class ShipmentController {
 }
 
 module.exports = new ShipmentController();
+

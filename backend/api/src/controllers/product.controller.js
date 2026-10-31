@@ -75,6 +75,30 @@ class ProductController {
             next(e);
         }
     }
+
+    async getSerialQR(req, res, next) {
+        try {
+            const { serialNumber } = req.params;
+            const { generateVerificationUrl, generateQRCodeDataURL, generateQRCodeSVG } = require('../utils/qrGenerator');
+            
+            const verificationUrl = generateVerificationUrl(serialNumber);
+            const qrDataUrl = await generateQRCodeDataURL(serialNumber);
+            const svg = await generateQRCodeSVG(serialNumber);
+
+            res.status(200).json({
+                success: true,
+                data: {
+                    serialNumber,
+                    verificationUrl,
+                    qrDataUrl,
+                    svg
+                }
+            });
+        } catch (e) {
+            next(e);
+        }
+    }
 }
 
 module.exports = new ProductController();
+

@@ -98,3 +98,4 @@ module.exports = {
     serialService: new SerialService(),
     inMemorySerials
 };
+
