@@ -113,3 +113,4 @@ export const getProductHistory = async (serialNumber) => {
         ];
     }
 };
+

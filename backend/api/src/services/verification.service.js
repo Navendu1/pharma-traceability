@@ -5,17 +5,21 @@
 
 const db = require('../config/database');
 const blockchainService = require('./blockchain.service');
+const anomalyService = require('./anomaly.service');
 const { inMemorySerials } = require('./serial.service');
 const logger = require('../utils/logger');
 
 class VerificationService {
     /**
-     * Public consumer verification check
+     * Public consumer verification check with advanced anomaly and velocity analysis
+     * 
+     * @param {string} serialNumber Packaging serial code
+     * @param {object} metadata Contextual metadata { ip, userAgent, city, coordinates, latitude, longitude }
      */
     async verifySerial(serialNumber, metadata = {}) {
         logger.info(`Processing verification request for serial: ${serialNumber}`);
 
-        // 1. Query Blockchain State (Evaluate)
+        // 1. Query Blockchain State (Evaluate Transaction)
         let fabricVerification = null;
         try {
             fabricVerification = await blockchainService.evaluateTransaction(
@@ -27,7 +31,7 @@ class VerificationService {
             fabricVerification = { exists: false, verificationStatus: 'UNKNOWN_SERIAL' };
         }
 
-        // 2. Query Local Database for enrichment & duplicate scan metrics
+        // 2. Query Local Database for enrichment & unit records
         let dbUnit = null;
         try {
             const res = await db.query(`
@@ -48,38 +52,29 @@ class VerificationService {
             dbUnit = inMemorySerials.get(serialNumber);
         }
 
-        // 3. Evaluate Status & Detect Anomaly
-        let finalStatus = 'UNKNOWN_SERIAL';
-        let alertMessage = 'This serial number is not found in the pharmaceutical ledger.';
-
-        if (fabricVerification && fabricVerification.exists) {
-            finalStatus = fabricVerification.verificationStatus;
-
-            if (finalStatus === 'AUTHENTIC') {
-                alertMessage = 'Genuine Product: Product authenticity and cryptographic signature verified on blockchain.';
-            } else if (finalStatus === 'RECALLED') {
-                alertMessage = '⚠️ CRITICAL RECALL ALERT: This batch has been officially recalled by the manufacturer/regulator. Do not dispense or consume!';
-            } else if (finalStatus === 'EXPIRED') {
-                alertMessage = '⚠️ EXPIRED PRODUCT: This medicine batch has passed its expiration date.';
-            } else if (finalStatus === 'ALREADY_SOLD') {
-                alertMessage = '🚨 SUSPICIOUS DUPLICATE SCAN: This serial number was previously recorded as sold. Potential counterfeit clone detected!';
-            }
+        if (!dbUnit && inMemorySerials.has(serialNumber)) {
+            dbUnit = inMemorySerials.get(serialNumber);
         }
 
-        // 4. Log Scan to Verification Logs
-        try {
-            await db.query(`
-                INSERT INTO verification_logs (scanned_serial_raw, scanner_ip, location_city, verification_result)
-                VALUES ($1, $2, $3, $4);
-            `, [serialNumber, metadata.ip || '127.0.0.1', metadata.city || 'Kolkata', finalStatus]);
-        } catch (e) {}
+        // 3. Multi-Vector Anomaly & Velocity Analysis
+        const assessment = await anomalyService.analyzeScan(serialNumber, metadata, fabricVerification, dbUnit);
+
+        // 4. Record Scan Event & Update Metrics
+        await anomalyService.recordScan(serialNumber, metadata, assessment);
 
         return {
             serialNumber,
-            verificationStatus: finalStatus,
-            alertMessage,
-            blockchainVerified: fabricVerification.exists,
-            details: fabricVerification.exists ? {
+            verificationStatus: assessment.verificationStatus,
+            alertMessage: assessment.alertMessage,
+            blockchainVerified: !!(fabricVerification && fabricVerification.exists),
+            anomaly: {
+                isAnomaly: assessment.isAnomaly,
+                anomalyType: assessment.anomalyType,
+                riskScore: assessment.riskScore,
+                scanCount: assessment.scanCount,
+                velocityDetails: assessment.velocityDetails
+            },
+            details: (fabricVerification && fabricVerification.exists) ? {
                 product: fabricVerification.product,
                 batch: fabricVerification.batch,
                 currentCustodian: fabricVerification.currentCustodian,
@@ -90,7 +85,7 @@ class VerificationService {
     }
 
     /**
-     * Retrieve complete verifiable journey history
+     * Retrieve complete verifiable journey history from blockchain
      */
     async getProductHistory(serialNumber) {
         try {
@@ -101,10 +96,10 @@ class VerificationService {
             );
             return rawHistory;
         } catch (e) {
+            logger.warn(`Failed to fetch history for ${serialNumber}: ${e.message}`);
             return [];
         }
     }
 }
 
 module.exports = new VerificationService();
-

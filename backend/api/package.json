@@ -10,7 +10,9 @@
     "test:db:mock": "node src/config/test-mock-db.js",
     "test:auth": "node src/tests/auth.test.js",
     "test:blockchain": "node src/tests/blockchain.test.js",
-    "test:supply-chain": "node src/tests/supplyChain.test.js"
+    "test:supply-chain": "node src/tests/supplyChain.test.js",
+    "test:anomaly": "node src/tests/anomaly.test.js",
+    "benchmark": "node src/tests/benchmark.js"
   },
   "keywords": [
     "blockchain",

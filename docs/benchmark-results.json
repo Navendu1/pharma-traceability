@@ -1,0 +1,80 @@
+{
+  "timestamp": "2026-10-31T05:20:41.639Z",
+  "environment": {
+    "nodeVersion": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD"
+  },
+  "metrics": {
+    "productRegistration": {
+      "sampleSize": 100,
+      "relationalOnly": {
+        "count": 100,
+        "totalTimeMs": 0.42,
+        "avg": 0,
+        "median": 0,
+        "p95": 0.01,
+        "min": 0,
+        "max": 0.02,
+        "throughput": 236686.4
+      },
+      "dualWriteBlockchain": {
+        "count": 100,
+        "totalTimeMs": 12.28,
+        "avg": 0.12,
+        "median": 0.1,
+        "p95": 0.2,
+        "min": 0.07,
+        "max": 1.65,
+        "throughput": 8142.3
+      }
+    },
+    "serialization": {
+      "sampleSize": 250,
+      "relationalOnly": {
+        "count": 250,
+        "totalTimeMs": 4.88,
+        "avg": 0.02,
+        "median": 0.01,
+        "p95": 0.03,
+        "min": 0.01,
+        "max": 1.42,
+        "throughput": 51266.3
+      },
+      "dualWriteBlockchain": {
+        "count": 250,
+        "totalTimeMs": 25.65,
+        "avg": 0.1,
+        "median": 0.08,
+        "p95": 0.17,
+        "min": 0.07,
+        "max": 2.37,
+        "throughput": 9745.2
+      }
+    },
+    "verification": {
+      "sampleSize": 500,
+      "relationalOnly": {
+        "count": 500,
+        "totalTimeMs": 0.43,
+        "avg": 0,
+        "median": 0,
+        "p95": 0,
+        "min": 0,
+        "max": 0.01,
+        "throughput": 1176470.6
+      },
+      "dualWriteBlockchain": {
+        "count": 500,
+        "totalTimeMs": 3083.47,
+        "avg": 6.17,
+        "median": 5.54,
+        "p95": 8.67,
+        "min": 3.96,
+        "max": 65.58,
+        "throughput": 162.2
+      }
+    }
+  }
+}
