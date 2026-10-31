@@ -305,3 +305,4 @@ export const Batches = ({ setActiveTab }) => {
         </div>
     );
 };
+

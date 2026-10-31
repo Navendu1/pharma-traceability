@@ -83,3 +83,4 @@ module.exports = {
     generateQRCodeSVG,
     formatGS1String
 };
+

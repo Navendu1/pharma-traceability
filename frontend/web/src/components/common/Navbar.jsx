@@ -76,3 +76,4 @@ export const Navbar = ({ activeTab, setActiveTab }) => {
         </header>
     );
 };
+

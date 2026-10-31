@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "PharmaTrace",
+    "slug": "pharma-trace",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#1B365D"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "PharmaTrace needs camera access to scan pharmaceutical QR codes and verify medicine authenticity."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1B365D"
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow PharmaTrace to access your camera to scan medicine barcodes and QR codes."
+        }
+      ]
+    ]
+  }
+}

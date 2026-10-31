@@ -111,3 +111,4 @@ export const QRCodeModal = ({ serialNumber, isOpen, onClose }) => {
         </div>
     );
 };
+

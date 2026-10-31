@@ -200,3 +200,4 @@ export const Login = ({ onLoginSuccess, onExplorePublicScanner }) => {
         </div>
     );
 };
+

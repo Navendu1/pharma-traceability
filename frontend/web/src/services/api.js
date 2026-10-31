@@ -49,3 +49,4 @@ export const api = {
     put: (endpoint, body, options) => request(endpoint, { method: 'PUT', body, ...options }),
     delete: (endpoint, options) => request(endpoint, { method: 'DELETE', ...options })
 };
+
