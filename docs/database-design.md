@@ -259,3 +259,4 @@ JOIN organizations o ON s.current_custodian_id = o.id
 WHERE b.batch_number = 'B2026-STG7'
   AND s.status NOT IN ('SOLD', 'RECALLED');
 ```
+

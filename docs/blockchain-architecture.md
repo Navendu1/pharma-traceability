@@ -170,3 +170,4 @@ The backend communicates with Fabric via \`@hyperledger/fabric-gateway\` v1.7. T
 
 - **Live Production Mode (\`isLiveNetworkAvailable = true\`):** Connects to physical peer nodes via gRPC using mutual TLS and connection profiles (\`blockchain/gateway/profiles/connection-org1-manufacturer.json\`).
 - **Academic Simulation Mode (\`isLiveNetworkAvailable = false\`):** Seamlessly executes the exact production Smart Contract code (\`PharmaContract\`) against an in-process deterministic state engine. All access controls, MSP identities, and state validations execute identically, guaranteeing 100% test fidelity.
+

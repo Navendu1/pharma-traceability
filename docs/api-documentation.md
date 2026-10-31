@@ -274,3 +274,4 @@ Public endpoint queried by consumers and hospital dispensaries scanning 2D barco
 - **Method / Route:** \`GET /api/v1/verification/history/:serialNumber\`
 - **Access Level:** Public
 - **Response (200 OK):** Complete array of immutable block transaction records with timestamps and MSP custodians.
+

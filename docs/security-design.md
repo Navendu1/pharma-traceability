@@ -111,3 +111,4 @@ To prevent hash discrepancies caused by differing key order in JSON serializatio
 - **Rate Limiting:**
   - Public Verification API: 100 requests per 15-minute window per IP.
   - Authentication Login API: 10 attempts per 15-minute window per IP.
+

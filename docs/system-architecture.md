@@ -187,3 +187,4 @@ stateDiagram-v2
 2. **Blockchain Submission (Fabric Gateway):** The backend client submits the transaction to the endorsing peers and awaits block commitment notification via gRPC stream.
 3. **Post-Commit Confirmation (PostgreSQL):** Upon receiving the cryptographically signed commit status and Fabric Transaction ID (\`txId\`), the local database row is updated to \`COMMITTED\` with the immutable transaction hash.
 4. **Failure Compensation:** If the blockchain submission fails, the database row is transitioned to \`FAILED\`. Background reconciliation jobs periodically re-evaluate pending states to ensure eventual consistency.
+

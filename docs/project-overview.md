@@ -133,3 +133,4 @@ pharma-traceability/
 > This software system is developed as an **Academic Research Prototype** at the Rajendra Mishra School of Engineering Entrepreneurship, IIT Kharagpur. It is designed to demonstrate technical feasibility, architectural decoupling, and empirical performance metrics.
 >
 > While it incorporates industry best-practices (Argon2id password hashing, GS1 DataMatrix compliance, X.509 MSP authorization, and Haversine velocity anomaly calculation), **it does not claim out-of-the-box formal regulatory validation** under US FDA 21 CFR Part 11, European EMA Annex 11, or CDSCO Good Manufacturing Practice (GMP) audit certifications, which require formal operational qualification (OQ), installation qualification (IQ), and performance qualification (PQ) documentation in a validated manufacturing environment.
+

@@ -93,3 +93,4 @@ $$\text{Unit Cost} = \frac{₹2,65,000}{5,000,000\text{ packs}} = \mathbf{₹0.0
 1. **Negligible Cost Overhead:** Adding ₹0.053 to a standard 10-tablet strip of Paracetamol or Antibiotics retailing for ₹30 to ₹120 represents less than **0.05% to 0.17% of the maximum retail price (MRP)**.
 2. **Recall Mitigation Savings:** A single nationwide physical recall of a contaminated or mislabeled pharmaceutical batch costs manufacturers between **₹1 Crore and ₹15 Crores** in logistics, reverse transit, inventory write-offs, and legal fines. PharmaTrace enables targeted sub-batch and serialized parcel recalls within minutes.
 3. **Brand Equity Protection:** Eliminating counterfeit dilution safeguards market share and prevents brand erosion caused by spurious products circulating in rural pharmacies.
+

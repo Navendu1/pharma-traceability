@@ -188,3 +188,4 @@ peer lifecycle chaincode commit -o orderer.pharmatrace.com:7050 --channelID phar
 | `Cannot connect to Fabric Gateway` | Peer containers offline or TLS certificate path mismatch | Verify `isLiveNetworkAvailable` in `blockchain.service.js`; system automatically falls back to in-process simulation engine. |
 | `CORS Error in Browser` | Frontend connecting to wrong API origin | Ensure `VITE_API_URL` in `frontend/web/.env` points to `http://localhost:5000/api/v1`. |
 | `Docker not recognized` | Docker Desktop not running or WSL2 integration disabled | Launch Docker Desktop; in Settings $\rightarrow$ Resources $\rightarrow$ WSL Integration, enable your Linux distro. |
+
