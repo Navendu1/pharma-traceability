@@ -54,3 +54,4 @@ module.exports = {
     channelName: config.fabric.channelName,
     chaincodeName: config.fabric.chaincodeName
 };
+

@@ -14,6 +14,10 @@ const { errorHandler, notFoundHandler } = require('./middleware/error.middleware
 
 // Route Imports
 const authRoutes = require('./routes/auth.routes');
+const productRoutes = require('./routes/product.routes');
+const shipmentRoutes = require('./routes/shipment.routes');
+const verificationRoutes = require('./routes/verification.routes');
+const recallRoutes = require('./routes/recall.routes');
 
 const app = express();
 
@@ -66,6 +70,10 @@ app.get('/health', async (req, res) => {
 
 // 7. Mount API Routes
 app.use(`${config.apiPrefix}/auth`, authRoutes);
+app.use(`${config.apiPrefix}/products`, productRoutes);
+app.use(`${config.apiPrefix}/shipments`, shipmentRoutes);
+app.use(`${config.apiPrefix}/verification`, verificationRoutes);
+app.use(`${config.apiPrefix}/recalls`, recallRoutes);
 
 // 8. 404 & Centralized Error Handlers
 app.use(notFoundHandler);
